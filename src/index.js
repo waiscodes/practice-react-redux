@@ -6,6 +6,7 @@ import toDosReducer from "./reducers/todos";
 import { addNewToDo } from "./actions/todos";
 import { Provider } from "react-redux";
 import ToDos from "./components/ToDos";
+import ToDoList from "./components/ToDoList";
 
 /*
  * Redux store
@@ -13,7 +14,10 @@ import ToDos from "./components/ToDos";
  * We pass in the reducer so that it'll know how to handle and actions (requests.)
  *
  */
-const store = createStore(toDosReducer);
+const store = createStore(
+  toDosReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 // We can add this to get a console log notification everytime something in the store changes.
 // subscribe is a method of createStore that allows to track changes. And you console long those changes basically.
@@ -31,6 +35,7 @@ store.dispatch(addNewToDo("Research Redux"));
 ReactDOM.render(
   <Provider store={store}>
     <ToDos />
+    <ToDoList />
   </Provider>,
   document.getElementById("root")
 );
