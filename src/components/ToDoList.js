@@ -1,13 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
+import { removeToDo } from "../actions/todos";
 
 const ToDoList = (props) => {
   return (
     <>
       <h2>To-Do List</h2>
       <ul>
-        {props.toDos.map((toDo, index) => (
-          <li key={index}>{toDo.task}</li>
+        {props.toDos.map((toDo) => (
+          <li key={toDo.id}>
+            {toDo.task}{" "}
+            <button
+              onClick={(event) => {
+                props.dispatch(removeToDo(toDo.id));
+              }}
+            >
+              Done
+            </button>
+          </li>
         ))}
       </ul>
     </>
