@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-function ToDoList(props) {
+const ToDoList = (props) => {
   return (
     <>
       <h2>To-Do List</h2>
@@ -12,7 +12,7 @@ function ToDoList(props) {
       </ul>
     </>
   );
-}
+};
 
 // Use connect to make our "To-Do list" available via props.toDos.
 export default connect((state) => ({ toDos: state }))(ToDoList);

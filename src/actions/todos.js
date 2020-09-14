@@ -15,6 +15,12 @@ const addNewToDo = (toDoContent) => {
   };
   //This is just a regular JS object
 };
+const removeToDo = (id) => {
+  return {
+    type: "REMOVE_TO_DO",
+    payload: id,
+  };
+};
 
 //If we want to multiple files we put them in curly braces and seperate them using commas.
-export { addNewToDo };
+export { addNewToDo, removeToDo };
