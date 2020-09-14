@@ -4,6 +4,7 @@ import "./index.css";
 import { createStore } from "redux";
 import toDosReducer from "./reducers/todos";
 import { addNewToDo } from "./actions/todos";
+import { Provider } from "react-redux";
 
 /*
  * Redux store
@@ -27,8 +28,8 @@ store.subscribe(() => console.log(store.getState()));
 store.dispatch(addNewToDo("Research Redux"));
 
 ReactDOM.render(
-  <React.StrictMode>
+  <provider store={store}>
     <></>
-  </React.StrictMode>,
+  </provider>,
   document.getElementById("root")
 );
