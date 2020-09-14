@@ -15,3 +15,4 @@ const addNewToDo = (toDoContent) => {
   };
   //This is just a regular JS object
 };
+export { addNewToDo };
